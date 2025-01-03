@@ -1,0 +1,122 @@
+.footer {
+    background-color: #f8f8f8;
+    padding: 20px 10%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-family: Arial, sans-serif;
+    color: black;
+  
+    .footer-section {
+      flex: 1 1 200px;
+      margin-bottom: 20px;
+  
+      h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: black;
+        margin-top: 10px;
+      }
+  
+      p {
+        font-size: 14px;
+        margin: 5px 0;
+        color: black;
+        i {
+          margin-right: 8px;
+          color: #fece51; // Icon màu cam
+        }
+      }
+  
+      ul {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        li {
+          margin: 5px 0;
+  
+          a {
+            text-decoration: none;
+            color: black;
+            transition: color 0.3s ease;
+            text-align: left;
+            &:hover {
+              color: #edb421; // Màu khi hover
+            }
+          }
+        }
+      }
+    
+      .app-links {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+  
+        img {
+          width: 100px; // Kích thước logo
+          height: auto;
+          cursor: pointer;
+        }
+  
+        // QR Code
+        img:first-child {
+          width: 80px;
+          height: 80px;
+        }
+      }
+  
+      .newsletter {
+        display: flex;
+        align-items: center;
+  
+        .newsletter-input {
+          flex: 1;
+          padding: 8px;
+          border: 1px solid #000;
+          border-radius: 4px;
+          margin-right: 5px;
+          font-size: 14px;
+  
+          &:focus {
+            outline: none;
+            border-color: #fece51;
+          }
+        }
+  
+        .newsletter-button {
+          background-color: #fece51;
+          border: none;
+          color: #000;
+          padding: 8px 12px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+  
+          i {
+            margin: 0;
+          }
+  
+          &:hover {
+            background-color: #ebb42a;
+          }
+        }
+      }
+  
+      .language-selector {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #000;
+        border-radius: 4px;
+        font-size: 14px;
+        //margin-top: 10px;
+  
+        &:focus {
+          outline: none;
+          border-color: #fece51;
+        }
+      }
+    }
+  }
+
+ 

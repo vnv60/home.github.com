@@ -1,0 +1,130 @@
+// Updated login.scss
+.login {
+  height: 100vh;
+  display: flex;
+  //background: linear-gradient(to right, #00bfa6, #00a4d3);
+  font-family: 'Roboto', sans-serif;
+
+  .formContainer {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+
+    .loginForm {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+      max-width: 400px;
+
+      label {
+        font-weight: bold;
+        color: #555555;
+        font-size: 14px;
+      }
+
+      h1 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #333333;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+                    
+
+      
+      input {
+        padding: 12px 15px;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #555555;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          border-color: teal;
+          outline: none;
+        }
+
+       
+      }
+
+      .forgotLink {
+        font-size: 14px;
+        color: #555555;
+        text-align: right;
+        text-decoration: none;
+        margin-bottom: 10px;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: teal;
+        }
+      }
+
+      .submitButton {
+        padding: 12px 15px;
+        border-radius: 5px;
+        border: none;
+        background-color: teal;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: #008f7a;
+        }
+
+        &:disabled {
+          background-color: #bed9d8;
+          cursor: not-allowed;
+        }
+      }
+
+      .errorMessage {
+        color: red;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .registerRedirect {
+        font-size: 14px;
+        color: #555555;
+        text-align: center;
+
+        a {
+          color: teal;
+          font-weight: bold;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .imgContainer {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+}

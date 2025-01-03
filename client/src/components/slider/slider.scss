@@ -1,0 +1,132 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.bigImage {
+  width: 100%;
+  max-height: 400px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.bigImage img {
+  max-width: 100%;
+  max-height: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.smallImages {
+  justify-content: center;
+  align-items: center;
+  
+  display: flex;
+  gap: 10px;
+  width: 100%; /* Giới hạn chiều rộng khung chứa ảnh nhỏ theo ảnh lớn */
+  overflow-x: auto; /* Cho phép cuộn ngang khi ảnh nhỏ vượt quá không gian */
+  padding: 5px 0;
+  scroll-behavior: smooth; /* Cuộn mượt */
+}
+
+.smallImages img {
+  border-radius: 10px;
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.3s;
+  flex-shrink: 0; /* Đảm bảo ảnh nhỏ không bị co lại */
+}
+
+.smallImages img.active {
+  border: 2px solid #007bff;
+}
+
+/* Thanh cuộn nhỏ và tinh tế */
+.smallImages::-webkit-scrollbar {
+  height: 8px;
+}
+
+.smallImages::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.smallImages::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw; /* Giới hạn chiều rộng tối đa */
+  max-height: 90vh; /* Giới hạn chiều cao tối đa */
+}
+
+.modalContent img {
+  max-width: 100%; /* Đảm bảo không vượt quá chiều rộng modal */
+  max-height: 90%; /* Đảm bảo không vượt quá chiều cao modal */
+  object-fit: contain; /* Giữ tỷ lệ hình ảnh */
+  transition: transform 0.3s ease; /* Hiệu ứng thu nhỏ/phóng to mượt */
+}
+
+.arrow {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  position: absolute;
+  top: 50%; /* Căn giữa theo chiều dọc */
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* Đảm bảo nút luôn nằm trên */
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5); /* Làm nổi bật nút */
+  border-radius: 50%; /* Hình dạng nút tròn */
+}
+
+.arrow.left {
+  left: 0; /* Cạnh ngoài cùng bên trái */
+}
+
+.arrow.right {
+  right: 0; /* Cạnh ngoài cùng bên phải */
+}
+
+.modalClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}

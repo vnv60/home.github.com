@@ -1,0 +1,93 @@
+.newPostPage {
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  //background-color: #f5f5f5;
+
+  .formContainer {
+    flex: 3;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+
+    .wrapper {
+      margin: 20px;
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+
+        .item {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          label {
+            font-weight: bold;
+          }
+
+          input,
+          select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+          }
+
+          &.address {
+            grid-column: 1 / -1; /* Chiếm toàn bộ chiều rộng */
+          }
+
+          &.description {
+            grid-column: 1 / -1; /* Chiếm toàn bộ chiều rộng */
+            .quill .ql-container {
+              height: 250px; /* Đặt chiều cao cố định */
+              overflow: hidden; /* Đảm bảo không tràn nội dung */
+            }
+            .quill .ql-container .ql-editor {
+              height: 200px; /* Chiều cao chỉnh sửa */
+              font-size: 16px;
+              overflow-y: auto; /* Cuộn nội dung nếu tràn */
+            }
+          }
+        }
+
+        .sendButton {
+          grid-column: span 2;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          background-color: teal;
+          color: #fff;
+          font-weight: bold;
+          cursor: pointer;
+          text-align: center;
+
+          &:hover {
+            background-color: darkcyan;
+          }
+        }
+      }
+    }
+  }
+
+  .sideContainer {
+    flex: 2;
+    //background-color: #fcf5f3;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+
+    img {
+      width: 50%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+}

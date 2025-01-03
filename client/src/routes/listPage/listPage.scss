@@ -1,0 +1,58 @@
+@import "../../responsive.scss";
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Chiều cao tối thiểu bằng 100% chiều cao màn hình
+  height: 100%; // Chiều cao linh hoạt, phụ thuộc vào nội dung
+      //max-height: calc(100vh - 100px); // Tính toán trừ chiều cao header/footer
+      overflow-y: auto; // Kích hoạt thanh cuộn dọc
+  .listPage {
+    flex: 1; // Đẩy footer xuống cuối trang
+    display: flex;
+  
+    .listContainer {
+      flex: 3;
+      height: 100%; // Chiều cao linh hoạt, phụ thuộc vào nội dung
+      max-height: calc(100vh - 100px); // Tính toán trừ chiều cao header/footer
+      overflow-y: auto; // Kích hoạt thanh cuộn dọc
+
+       // Ẩn thanh cuộn
+       scrollbar-width: none; // Firefox
+       -ms-overflow-style: none; // IE
+       &::-webkit-scrollbar {
+         display: none; // Chrome, Safari
+       }
+       
+      .wrapper {
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        padding-bottom: 50px;
+      }
+    }
+  
+    .mapContainer {
+      flex: 2;
+      height: 650px; // Chiều cao cố định
+      background-color: #fcf5f3;
+  
+      @include md {
+        display: none;
+      }
+    }
+  }
+  
+}
+
+
+
+.footer {
+  width: 100%;
+ // padding: 20px;
+  text-align: left;
+  background-color: #f8f8f8;
+  //color: #fff;
+  margin-bottom: 90px;
+}

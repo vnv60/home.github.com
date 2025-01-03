@@ -1,0 +1,143 @@
+.featured-properties {
+    margin: 10px auto;
+    width: 90%;
+  
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .property-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      //justify-content: center;
+  
+      .property-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        width: calc(25% - 16px); // Hiển thị 4 card trên 1 hàng
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
+  
+        &:hover {
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+  
+        .image-container {
+          display: block;
+  
+          img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+          }
+        }
+  
+        .property-info {
+          padding: 12px;
+
+          .status-label {
+            display: inline-block;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 20px;
+  
+            &.approved {
+              background-color: #4caf50; // Xanh lá cho trạng thái duyệt
+            }
+  
+            &.pending {
+              background-color: #ffc107; // Vàng cho trạng thái chờ duyệt
+            }
+          }
+  
+          h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 8px 0;
+          }
+  
+          .price {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ff5722; // Màu cam nổi bật cho giá
+            margin: 4px 0;
+          }
+  
+          p {
+            font-size: 14px;
+            color: #666;
+            margin: 4px 0;
+          }
+        }
+      }
+    }
+  
+    .show-all-button {
+      margin-top: 20px;
+      text-align: center;
+  
+      button {
+        background-color: #fece51;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        //margin-bottom: 20px;
+  
+        &:hover {
+          background-color: #e8bc4c;
+        }
+      }
+    }
+  
+    .loading {
+      text-align: center;
+      font-size: 16px;
+      color: #666;
+      margin-top: 20px;
+    }
+  
+    .no-data {
+      text-align: center;
+      font-size: 16px;
+      color: #999;
+      margin-top: 20px;
+    }
+  
+    // Responsive
+    @media (max-width: 1024px) {
+      .property-cards {
+        .property-card {
+          width: calc(33.33% - 16px); // Hiển thị 3 card trên 1 hàng
+        }
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .property-cards {
+        .property-card {
+          width: calc(50% - 16px); // Hiển thị 2 card trên 1 hàng
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .property-cards {
+        .property-card {
+          width: 100%; // Hiển thị 1 card trên 1 hàng
+        }
+      }
+    }
+  }
+  

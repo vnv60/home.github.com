@@ -1,0 +1,70 @@
+@import "../../responsive.scss";
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Chiều cao tối thiểu bằng 100% chiều cao màn hình
+  height: 100%; // Chiều cao linh hoạt, phụ thuộc vào nội dung
+      //max-height: calc(100vh - 100px); // Tính toán trừ chiều cao header/footer
+      overflow-y: auto; // Kích hoạt thanh cuộn dọc
+  // Rules.scss
+.rules-container {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px auto;
+    max-width: 800px;
+    //overflow: auto;
+    //height: 100%;
+    .rules-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fece51;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .rule-section {
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fece51;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+
+  
+
+
+
+
+}
+.footer {
+  width: 100%;
+ // padding: 20px;
+  text-align: left;
+  background-color: #333;
+  color: #fff;
+  margin-bottom: 90px;
+}
+  
+}
+
+
+
+

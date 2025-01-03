@@ -1,0 +1,78 @@
+.featured-users {
+    margin: 10px auto;
+    width: 90%;
+  
+    .section-title-quanly {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .user-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+  
+      .user-card {
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        width: calc(25% - 16px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        text-align: center;
+  
+        transition: box-shadow 0.3s;
+  
+        &:hover {
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+  
+        .avatar-container {
+          display: block;
+          img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+          }
+        }
+  
+        .user-info {
+          padding: 12px;
+  
+          h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 8px 0;
+          }
+  
+          p {
+            font-size: 14px;
+            color: #666;
+            margin: 4px 0;
+          }
+        }
+      }
+    }
+  
+    .show-more {
+      text-align: center;
+      margin-top: 20px;
+  
+      button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 4px;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  

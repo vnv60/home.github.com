@@ -1,0 +1,159 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Post {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  title      String
+  price      Int
+  images     String[]
+  address    String
+  city       String
+  bedroom    Int
+  bathroom   Int
+  latitude   String
+  longitude  String
+  type       Type
+  property   Property
+  buystatus       buyStatus       @default(raoban)
+  rentstatus       rentStatus       @default(raoban)
+  status       Status       @default(choduyet)
+  look       Lock       @default(khongkhoa)
+  createdAt  DateTime    @default(now())
+  user       User        @relation(fields: [userId], references: [id])
+  userId     String      @db.ObjectId
+  postDetail PostDetail?
+  savedPosts SavedPost[]
+}
+enum buyStatus {
+  raoban // rao ban
+  danggiaodich // giao dich
+  daban // da ban
+}
+
+enum rentStatus {
+  raoban // rao ban
+  danggiaodich // giao dich
+  dachothue // da cho thue
+}
+
+enum Status {
+  choduyet // chờ duyệt
+  duyet // duyệtduyệt
+}
+
+enum Lock {
+  khongkhoa // không khóa
+  khoa // khóakhóa
+}
+
+enum Type {
+  buy
+  rent
+}
+
+enum Property {
+  apartment
+  house
+  condo
+  land
+}
+
+model PostDetail {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  desc       String
+  utilities  String?
+  pet        String?
+  income     String?
+  size       Int?
+  school     Int?
+  bus        Int?
+  restaurant Int?
+  maket     Int?
+  supermaket        Int?
+  hospital Int?
+  post       Post    @relation(fields: [postId], references: [id])
+  postId     String  @unique @db.ObjectId
+}
+
+model SavedPost {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  post      Post     @relation(fields: [postId], references: [id])
+  userId    String   @unique @db.ObjectId
+  postId    String   @unique @db.ObjectId
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+}
+
+model User {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  email      String      @unique
+  username   String      @unique
+  password   String
+  avatar     String?
+  createdAt  DateTime    @default(now())
+  posts      Post[]
+  savedPosts SavedPost[]
+  chats      Chat[]      @relation(fields: [chatIDs], references: [id])
+  chatIDs    String[]    @db.ObjectId
+  role       Role       @default(nguoidung)
+  address String?
+  userlook       userLock       @default(khongkhoa)
+  userstatus       userStatus       @default(choduyet)
+  info   String?
+  phone   String?
+  resetPasswordToken   String?
+  resetPasswordExpires DateTime?
+}
+
+enum userStatus {
+  choduyet // chờ duyệt
+  duyet // duyệtduyệt
+}
+
+enum userLock {
+  khongkhoa // không khóa
+  khoa // khóakhóa
+}
+
+enum Role {
+nguoidung      // Người dùng bình thường
+quanly   // Quản lý
+quantri //admin 
+}
+
+model Chat {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  users     User[]    @relation(fields: [userIDs], references: [id])
+  userIDs   String[]  @db.ObjectId
+  createdAt DateTime  @default(now())
+  seenBy    String[]  @db.ObjectId
+  messages  Message[]
+  lastMessage String?
+}
+
+model Message {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  text      String
+  userId    String
+  chat      Chat     @relation(fields: [chatId], references: [id])
+  chatId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+}
+
+
+
+
